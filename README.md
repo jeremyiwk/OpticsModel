@@ -6,7 +6,7 @@ This program is an attempt to create a simple simulation engine for a charged pa
 
 ### Basic Function
 
-The general idea will be that the user specifies the optical elements in the system (apertures, lenses, multipoles, etc.) and the simulator calculates the trajectory of particles launched through the system. The output will be the coordinates of each particle when they've reached the physical end of the system. The coordinates will be in the form $q = (x,y,z,vx,vy,vz)$.
+The general idea will be that the user specifies the optical elements in the system (apertures, lenses, multipoles, etc.) and the simulator calculates the trajectory of particles launched through the system. The output will be the coordinates of each particle when they've reached the physical end of the system. The coordinates will be in the form $q = (x,y,z,v_x,v_y,v_z)$.
 
 ### Things to work out
 
