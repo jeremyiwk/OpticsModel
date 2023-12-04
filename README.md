@@ -1,6 +1,6 @@
 # OpticsModel
 ##### Author: Jeremy Welsh-Kavan
-##### Last Updated: Dec. 1st, 2023
+##### Last Updated: Dec. 4th, 2023
 
 This program is an attempt to create a simple simulation engine for a charged particle optical system. It will be based vaguely on my understanding of the code used in Pulsar Physics' General Particle Tracer: https://www.pulsar.nl/gpt/
 
@@ -24,6 +24,16 @@ $$
 \mathbf{q}(t + \Delta t) = \mathbf{A} \mathbf{q}(t)
 $$
 
-Can we do this with coloumbic interactions too such that $\mathbf{A} = \mathbf{V} + \mathbf{C}$, where $\mathbf{V}$ and $\mathbf{C}$ are the optical system potential and the Coulombic potentials respectively?
+This preference allows us to delegate expensive matrix algebra to the OpenBLAS backend of a library like Eigen.
 
+But, can we do this with coloumbic interactions too such that $\mathbf{A} = \mathbf{V} + \mathbf{C}$, where $\mathbf{V}$ and $\mathbf{C}$ are the optical system potential and the Coulombic potentials respectively?
 
+### Column Element Geometry and BEM
+
+Preliminary exploration of column elements gives some clues as to how column elements will be implemented. In practice, we have control over the voltages applied to surfaces in the column. The BEM method tells us the configuration of charges/densities required to produce a given boundary potential. In theory, this is given by solving the following integral equation for $\rho(\mathbf{r})$
+
+$$
+\varphi(\mathbf{r}) = \int \frac{ \rho(\mathbf{r'} }{ | \mathbf{r} - \mathbf{r'} | } d\mathbf{r'}
+$$
+
+In practice, this is a matrix multiplication. The positions of the given potential are divided into a grid of points
