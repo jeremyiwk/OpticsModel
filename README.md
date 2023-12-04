@@ -56,6 +56,8 @@ $$
 \mathbf{\rho} = (\mathbf{R}^T\mathbf{R})^{+}\mathbf{R}^T\mathbf{\varphi}
 $$
 
+where $A^{+}$ denotes the Moore-Penrose pseudo-inverse of a matrix $A$.
+
 Great! This gives us a list of charges, $\mathbf{\rho}$, that approximates the given potential field. Now all we have to do is compute the Coulomb force between each of the particles in our simulation and each of the density charges ... at every timestep ... and possibly also the Coulomb force between each particle in the simulation as well. 
 
 This raises another question: once all the density charges are determined, how do we know which charges to use to propagate motion? Do we use all density charges at once, even though some of the are very far away and have negligible effects on the motion of the given particle? Or do we place a cutoff that eliminates most of the density charges from the calculation at every timestep? If we do this, how do we determine the cutoff?
