@@ -33,7 +33,36 @@ But, can we do this with coloumbic interactions too such that $\mathbf{A} = \mat
 Preliminary exploration of column elements gives some clues as to how column elements will be implemented. In practice, we have control over the voltages applied to surfaces in the column. The BEM method tells us the configuration of charges/densities required to produce a given boundary potential. In theory, this is given by solving the following integral equation for $\rho(\mathbf{r})$
 
 $$
-\varphi(\mathbf{r}) = \int \frac{ \rho(\mathbf{r'} }{ | \mathbf{r} - \mathbf{r'} | } d\mathbf{r'}
+\varphi(\mathbf{r}) = \int \frac{ \rho(\mathbf{r'}) }{ | \mathbf{r} - \mathbf{r'} | } d\mathbf{r'}
 $$
 
-In practice, this is a matrix multiplication. The positions of the given potential are divided into a grid of points
+In practice, this is a matrix multiplication. To start, the given potential distribution is divided into a grid of $N$ points, whose cartesian coordinate positions are $\mathbf{x}_p, \mathbf{y}_p, \mathbf{z}_p \in \mathbb{R}^N$. Next, a list of $M$ points is chosen to represent the positions of the charges $\mathbf{x}_c, \mathbf{y}_c, \mathbf{z}_c \in \mathbb{R}^M$. Now we can form the matrix multiplication. Note, vectors in bold face are now used to indicate an array of numbers rather than cartesian vectors.
+
+Define
+
+$$
+\mathbf{R} = \frac{1}{\sqrt{ (\mathbf{x}_p - \mathbf{x}_c^T)^2 + (\mathbf{y}_p - \mathbf{y}_c^T)^2 + (\mathbf{z}_p - \mathbf{z}_c^T)^2}}
+$$ 
+
+So $\mathbf{R} \in \mathbb{R}^{N \times M}$, and represents the inverse of the absolute value of all pairs of distances between density charges and vertices of the potential grid. The potential is then given by
+
+$$
+\mathbf{\varphi} = \mathbf{R} \mathbf{\rho}
+$$
+
+in natural units, of course. This system is either underdetermined or overdetermined depending on the choice for $N$ and $M$. However, our theoretical resolution for the potential is effectively infinite. Whereas, our resolution for the charge density is limited by our computing resources. Therefore, in practice we have $N > M$. We can solve the (overdetermined) matrix equation with a least squares solution. This yields
+
+$$
+\mathbf{\rho} = (\mathbf{R}^T\mathbf{R})^{+}\mathbf{R}^T\mathbf{\varphi}
+$$
+
+Great! This gives us a list of charges, $\mathbf{\rho}$, that approximates the given potential field. Now all we have to do is compute the Coulomb force between each of the particles in our simulation and each of the density charges ... at every timestep ... and possibly also the Coulomb force between each particle in the simulation as well. 
+
+This raises another question: once all the density charges are determined, how do we know which charges to use to propagate motion? Do we use all density charges at once, even though some of the are very far away and have negligible effects on the motion of the given particle? Or do we place a cutoff that eliminates most of the density charges from the calculation at every timestep? If we do this, how do we determine the cutoff?
+
+
+
+
+
+
+
