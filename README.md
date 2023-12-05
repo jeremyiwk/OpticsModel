@@ -70,7 +70,7 @@ After some preliminary research, the Einzel lenses look like they will be fairly
 
 1) The user specifies the voltage of the lens (voltage of the central electrode). If desired, user can also specify lens dimensions, electrode and insulator lengths and radius. Though, I think these are fairly consistent so these will have default values.
 
-2) The electrode is discretized into a set of $N$ points in $\mathbb{R}^3$, $\mathbf{r}_e = (\mathbf{x}_e, \mathbf{y}_e, \mathbf{z}_e) \in \mathbb{R}^{3 \times N}$. The potential, $\varphi \in \mathbb{R}^N$ is set or calculated at each of these points.
+2) The electrode is discretized into a set of $N$ points in $\mathbb{R}^3$, $\mathbf{r}_e = (\mathbf{x}_e, \mathbf{y}_e, \mathbf{z}_e) \in \mathbb{R}^{3 \times N}$. The potential, $\mathbf{\varphi} \in \mathbb{R}^N$ is set or calculated at each of these points.
 
 	i) This raises the question: What is the best way to discretize the element? How much resolution can we afford?
 
