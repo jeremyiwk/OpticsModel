@@ -84,7 +84,7 @@ After some preliminary research, the Einzel lenses look like they will be fairly
 
 5) The charge distribution $\mathbf{\rho} \in \mathbb{R}^M$ is calculated via $\mathbf{\rho} = (\mathbf{R}^T\mathbf{R})^{+}\mathbf{R}^T\mathbf{\varphi}$.
 
-6) The image charge distribution is then given by $\mathbf{r}_c = (\mathbf{x}_c, \mathbf{y}_c, \mathbf{z}_c, \mathbf{\rho}) \in \mathbb{R}^{4 \times M}$.
+6) The image charge distribution is then given by $(\mathbf{x}_c, \mathbf{y}_c, \mathbf{z}_c, \mathbf{\rho}) \in \mathbb{R}^{4 \times M}$.
 
 
 ### Multipole Design
