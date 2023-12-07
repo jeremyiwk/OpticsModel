@@ -1,6 +1,6 @@
 # OpticsModel
 ##### Author: Jeremy Welsh-Kavan
-##### Last Updated: Dec. 5th, 2023
+##### Last Updated: Dec. 6th, 2023
 
 This program is an attempt to create a simple simulation engine for a charged particle optical system. For the time being, this will be entirely exploratory and unusable. This file will be a running notebook of my design strategy as I build the thing, but I will replace it with an actual README file when I'm done. 
 
@@ -85,6 +85,8 @@ After some preliminary research, the Einzel lenses look like they will be fairly
 5) The charge distribution $\mathbf{\rho} \in \mathbb{R}^M$ is calculated via $\mathbf{\rho} = (\mathbf{R}^T\mathbf{R})^{+}\mathbf{R}^T\mathbf{\varphi}$.
 
 6) The image charge distribution is then given by $(\mathbf{x}_c, \mathbf{y}_c, \mathbf{z}_c, \mathbf{\rho}) \in \mathbb{R}^{4 \times M}$.
+
+I think the real questions for elements will be: how few charges can we get away with? For a potential with ~2000 points, roughly ~1500 charges yields an errors ~$10^{-4}$ and ~750 points yields errors ~$10^{-3}$. If I were being really rigorous, I would try to determine how the error scales when the number of point in each coordinate is increased. But I think we'll end up with a number of points roughly half to a quarter of the number in the potential. 
 
 
 ### Multipole Design
