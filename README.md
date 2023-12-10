@@ -86,12 +86,34 @@ After some preliminary research, the Einzel lenses look like they will be fairly
 
 6) The image charge distribution is then given by $(\mathbf{x}_c, \mathbf{y}_c, \mathbf{z}_c, \mathbf{\rho}) \in \mathbb{R}^{4 \times M}$.
 
-I think the real questions for elements will be: how few charges can we get away with? For a potential with ~2000 points, roughly ~1500 charges yields an errors ~$10^{-4}$ and ~750 points yields errors ~$10^{-3}$. If I were being really rigorous, I would try to determine how the error scales when the number of point in each coordinate is increased. But I think we'll end up with a number of points roughly half to a quarter of the number in the potential. 
+I think the real questions for elements will be: how few charges can we get away with? For a potential with ~2000 points, roughly ~1500 charges yields an errors $\sim 10^{-4}$ and ~750 points yields errors $\sim 10^{-3}$. If I were being really rigorous, I would try to determine how the error scales when the number of point in each coordinate is increased. But I think we'll end up with a number of points roughly half to a quarter of the number in the potential. 
 
 
 ### Multipole Design
 
-The construction of the multipole elements will most likely follow the Einzel lens design very closely but require a different discretization.
+The construction of the multipole elements will most likely follow the Einzel lens design very closely but require a different discretization. We probably don't have to worry about multipole elements until the rest of the simulator is finished.
+
+### Numerical Integration
+
+Equally important to the optical element implementation is the method of numerical integration. This choice may also help determine how optical elements are applied to the numerical integration. The two main options I'm considering for numerical integration are: Runge-Kutta methods and sympletic methods, specifically Verlet. Verlet algorithms have the advantage of being explicitly time-reversible. Whatever the integration method, we would like the coordinates to be propagated as follows: 
+
+Let $\mathbf{x}_n$  and $\mathbf{p}_n$ be the position and momentum of a particle at the $n^\text{th}$ timestep. Our integration method will compute $\mathbf{x}_{n+1}$  and $\mathbf{p}_{n+1}$ via
+
+$$
+\left(\begin{array}{cc} 
+\mathbf{x}_{n+1}\\ 
+\mathbf{p}_{n+1}
+\end{array}\right) = 
+\left(\begin{array}{cc} 
+1 & \frac{dt}{m} \\
+0 & \mathbf{E}(\mathbf{x})
+\end{array}\right)
+\left(\begin{array}{cc} 
+\mathbf{x}_{n}\\
+\mathbf{p}_{n}
+\end{array}\right)
+$$ 
+
 
 
 
