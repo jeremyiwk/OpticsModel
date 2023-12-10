@@ -97,22 +97,9 @@ The construction of the multipole elements will most likely follow the Einzel le
 
 Equally important to the optical element implementation is the method of numerical integration. This choice may also help determine how optical elements are applied to the numerical integration. The two main options I'm considering for numerical integration are: Runge-Kutta methods and sympletic methods, specifically Verlet. Verlet algorithms have the advantage of being explicitly time-reversible. Whatever the integration method, we would like the coordinates to be propagated as follows: 
 
-Let $\mathbf{x}_n$  and $\mathbf{p}_n$ be the position and momentum of a particle at the $n^\text{th}$ timestep. Our integration method will compute $\mathbf{x}_{n+1}$  and $\mathbf{p}_{n+1}$ via
+Let $\mathbf{x}_n$  and $\mathbf{p}_n$ be the position and momentum of a particle at the $n^{\text{th}}$ timestep. Our integration method will compute $\mathbf{x}_{n+1}$  and $\mathbf{p}_{n+1}$ via
 
-% $$
-% \left(\begin{array}{cc} 
-% \mathbf{x}_{n+1}\\ 
-% \mathbf{p}_{n+1}
-% \end{array}\right) = 
-% \left(\begin{array}{cc} 
-% 1 & \frac{dt}{m} \\
-% 0 & \mathbf{E}(\mathbf{x})
-% \end{array}\right)
-% \left(\begin{array}{cc} 
-% \mathbf{x}_{n}\\
-% \mathbf{p}_{n}
-% \end{array}\right)
-% $$ 
+
 
 
 
