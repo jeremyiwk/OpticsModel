@@ -4,7 +4,7 @@
 
 This program is an attempt to create a simple simulation engine for a charged particle optical system. For the time being, this will be entirely exploratory and unusable. This file will be a running notebook of my design strategy as I build the thing, but I will replace it with an actual README file when I'm done. 
 
-I'm hoping the program will be based vaguely on my understanding of the BEM code used in Pulsar Physics' General Particle Tracer: https://www.pulsar.nl/gpt/, only much much much simpler and far less optimized. 
+I'm hoping the program will be based vaguely on my understanding of the BEM code used in Pulsar Physics' General Particle Tracer: https://www.pulsar.nl/gpt/, only much much much simpler and far less optimized. Unlike General Particle Tracer, this program will be non-relativistic. The justification for this is based on the energy scale of the particles involved. Particle energies will be well below $10\text{e}5$ eV. 
 
 ### Basic Function
 
