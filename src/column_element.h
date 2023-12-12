@@ -9,6 +9,25 @@ public:
 
 };
 
+class Drift:
+{
+private:
+public:
+
+	double z_min;
+	double z_max;
+	double radius;
+
+};
+
+class Screen:
+{
+private:
+public:
+
+	double z_loc;
+};
+
 class Aperture: public ColumnElement
 {
 
