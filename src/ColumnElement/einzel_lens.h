@@ -1,47 +1,4 @@
-#include <Eigen/Dense>
-
-class ColumnElement
-{
-
-private:
-
-public:
-
-};
-
-class Drift:
-{
-private:
-public:
-
-	double z_min;
-	double z_max;
-	double radius;
-
-};
-
-class Screen:
-{
-private:
-public:
-
-	double z_loc;
-};
-
-class Aperture: public ColumnElement
-{
-
-private:
-
-public:
-
-	double z_min;
-	double z_max;
-	double r_minor;
-	double r_major;
-
-};
-
+#include "column_element.h"
 
 class EinzelLens: public ColumnElement
 {
@@ -93,14 +50,5 @@ public:
 	{
 		std::cout << "initializing lens" << std::endl;
 	}
-
-};
-
-class Multipole: public ColumnElement
-{
-
-private:
-
-public:
 
 };
