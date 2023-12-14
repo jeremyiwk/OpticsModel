@@ -98,6 +98,14 @@ The construction of the multipole elements will most likely follow the Einzel le
 Equally important to the optical element implementation is the method of numerical integration. This choice may also help determine how optical elements are applied to the numerical integration. The two main options I'm considering for numerical integration are: Runge-Kutta methods and sympletic methods, specifically Verlet. Verlet algorithms have the advantage of being explicitly time-reversible. Whatever the integration method, we would like the coordinates to be propagated as follows: 
 
 
+### Images
+
+The following are images of the basic principle using Python and simple Euler integration
+
+![alt text](images/Figure10.png "Title")
+
+![alt text](images/Figure7.png "Title")
+
 
 
 
