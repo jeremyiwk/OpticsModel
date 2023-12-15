@@ -1,6 +1,6 @@
 # OpticsModel
 ##### Author: Jeremy Welsh-Kavan
-##### Last Updated: Dec. 13th, 2023
+##### Last Updated: Dec. 14th, 2023
 
 This program is an attempt to create a simple simulation engine for a charged particle optical system. For the time being, this will be entirely exploratory and unusable. This file will be a running notebook of my design strategy as I build the thing, but I will replace it with an actual README file when I'm done. 
 
